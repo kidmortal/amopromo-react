@@ -11,9 +11,9 @@ export default function BoardReducer(state = defaultState, action) {
 
     case "ADD_ITEM_TO_LIST": {
       let newState = [...state];
-      let { listIndex } = action.payload;
+      let { listIndex, item } = action.payload;
       let list = newState[listIndex].list;
-      list.push(action.payload.item);
+      list.push(item);
       return newState;
     }
     case "REMOVE_ITEM_FROM_LIST": {
@@ -36,20 +36,6 @@ export default function BoardReducer(state = defaultState, action) {
       let newState = [...state];
       let { listIndex } = action.payload;
       newState.splice(listIndex, 1);
-      return newState;
-    }
-
-    case "ITEM_DRAG": {
-      let newState = [...state];
-      let { item, from, to } = action.payload;
-      let fromListIndex = newState.findIndex((list) => list.title === from);
-      let toListIndex = newState.findIndex((list) => list.title === to);
-      let fromList = newState[fromListIndex].list;
-      let toList = newState[toListIndex].list;
-      let itemIndex = fromList.findIndex((listItem) => listItem.id === item.id);
-      let spliceItem = fromList.splice(itemIndex, 1);
-      console.log(spliceItem);
-      toList.push(spliceItem);
       return newState;
     }
 
