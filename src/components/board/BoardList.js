@@ -4,7 +4,7 @@ import { BoardItem } from "./BoardItem";
 export function BoardList(props) {
   return (
     <Stack
-      width="315px"
+      width={[100, 150, 200, 250, 300]}
       borderTop="5px"
       borderRadius="5px"
       bg={props.color}
@@ -15,11 +15,9 @@ export function BoardList(props) {
         <Text fontSize="medium" fontWeight="bold" color="white">
           {props.title}
         </Text>
-        <BoardItem />
-        <BoardItem />
-        <BoardItem />
-        <BoardItem />
-        <BoardItem />
+        <BoardItem content="Primeiro todo" tag="Teste" />
+        <BoardItem content="Segundo todo" tag="Teste" />
+        <BoardItem content="Terceiro todo" tag="Teste" />
       </Stack>
     </Stack>
   );

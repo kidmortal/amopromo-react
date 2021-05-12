@@ -4,14 +4,25 @@ import { BoardList } from "./BoardList";
 
 export function Board() {
   return (
-    <Stack margin="20px" justify="space-around">
-      <Text fontSize="5xl">Kanban da Felicidade</Text>
-      <HStack justify="start" spacing={10}>
+    <Stack h={[300, 500, 700, 800, 900]} margin="40px">
+      <Text fontSize="4xl" fontWeight="700">
+        Kanban do Projeto
+      </Text>
+      <HStack zIndex="10" justify="start" spacing={10}>
         <BoardList title="📝 To Do" color="#5CC4FF" />
         <BoardList title="📝 To Do" color="#945AD1" />
         <BoardList title="📝 To Do" color="#59D090" />
       </HStack>
-      <Image src="url('/assets/board-backgrund.svg')" />
+      <Image
+        zIndex="5"
+        position="absolute"
+        top={[700, 600, 500, 400]}
+        right={[50]}
+        w={[220, 335, 450, 565, 680]}
+        h={[130, 200, 270, 340, 410]}
+        src="/background.png"
+        alt="background-desk"
+      />
     </Stack>
   );
 }

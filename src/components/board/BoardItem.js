@@ -1,10 +1,19 @@
+import { HStack } from "@chakra-ui/layout";
 import { Box, Stack, Text } from "@chakra-ui/layout";
+import { Tag } from "@chakra-ui/tag";
 
-export function BoardItem() {
+export function BoardItem(props) {
   return (
-    <Stack w="275px" h="90px" bg="white" borderRadius="5px">
-      <Stack margin="10px">
-        <Text fontSize="medium">Fazer algo</Text>
+    <Stack w={[50, 100, 150, 215, 255]} h="90px" bg="white" borderRadius="5px">
+      <Stack margin="10px" justify="flex-start">
+        <Text fontWeight="medium" fontSize="medium">
+          {props.content}
+        </Text>
+        <HStack justify="start">
+          <Tag bg="blue.400" variant="solid">
+            {props.tag}
+          </Tag>
+        </HStack>
       </Stack>
     </Stack>
   );
