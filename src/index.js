@@ -3,6 +3,7 @@ import { theme } from "./styles/theme";
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
+import { AddNewItemModal } from "./components/board/AddNewItemModal";
 
 ReactDOM.render(
   <React.StrictMode>

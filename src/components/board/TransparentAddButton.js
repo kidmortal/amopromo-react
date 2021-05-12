@@ -1,19 +1,16 @@
-import { Button, HStack, Text } from "@chakra-ui/react";
+import { Button, HStack, Icon, Text } from "@chakra-ui/react";
+import { RiAddLine } from "react-icons/ri";
 
-export function TransparentAddButton(props) {
+export function TransparentAddButton({ children, color, onClick }) {
   return (
     <Button
-      color={props.color}
-      onClick={props.onClick}
+      leftIcon={<Icon as={RiAddLine} />}
+      color={color}
+      onClick={onClick}
       variant="ghost"
       _hover={{ borderColor: "green", border: "1px" }}
     >
-      <HStack spacing={5}>
-        <Text fontSize="4xl" fontWeight="thin">
-          +
-        </Text>
-        <Text fontWeight="light">{props.text}</Text>
-      </HStack>
+      {children}
     </Button>
   );
 }

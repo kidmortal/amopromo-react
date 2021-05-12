@@ -1,6 +1,6 @@
 import { HStack, Stack, Text } from "@chakra-ui/layout";
 import { Tag } from "@chakra-ui/tag";
-import React, { forwardRef } from "react";
+import React from "react";
 import { Draggable } from "react-beautiful-dnd";
 
 export function BoardItem({ item, index }) {
@@ -8,7 +8,6 @@ export function BoardItem({ item, index }) {
     <Draggable draggableId={item.id} index={index}>
       {(provided) => (
         <Stack
-          h="90px"
           bg="white"
           borderRadius="5px"
           {...provided.draggableProps}
@@ -16,13 +15,20 @@ export function BoardItem({ item, index }) {
           ref={provided.innerRef}
         >
           <Stack margin="10px" justify="flex-start">
-            <Text fontWeight="medium" fontSize="medium">
+            <Text fontWeight="medium" fontSize="medium" maxW="200px">
               {item.content}
             </Text>
             <HStack justify="start">
-              <Tag bg="blue.400" variant="solid">
+              <Text
+                bg="blue.400"
+                borderRadius="5px"
+                padding="5px"
+                fontWeight="medium"
+                fontSize="medium"
+                maxW="200px"
+              >
                 {item.tag}
-              </Tag>
+              </Text>
             </HStack>
           </Stack>
         </Stack>
