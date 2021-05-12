@@ -6,22 +6,8 @@ import { Droppable } from "react-beautiful-dnd";
 import { BoardItem } from "./BoardItem";
 import { AddNewItemModal } from "./AddNewItemModal";
 
-export function BoardList({ color, title, list, lists, setLists }) {
-  function handleDeleteList() {
-    let index = lists.findIndex((item) => item.title === title);
-    if (index >= 0) {
-      let newState = [...lists];
-      newState.splice(index, 1);
-      setLists(newState);
-    }
-  }
-
-  function handleAddNewItem() {
-    let index = lists.findIndex((item) => item.title === title);
-    let newState = [...lists];
-    newState[index].list.push({ id: "xxxx", content: "Novo", tag: "novo" });
-    setLists(newState);
-  }
+export function BoardList({ color, title, list, listIndex }) {
+  function handleDeleteList() {}
 
   return (
     <Droppable droppableId={title}>
@@ -50,12 +36,17 @@ export function BoardList({ color, title, list, lists, setLists }) {
                 }
               />
             </HStack>
-            {list?.map((item, index) => (
-              <BoardItem item={item} index={index} key={item.id} />
+            {list?.map((item, idx) => (
+              <BoardItem
+                item={item}
+                listIndex={listIndex}
+                itemIndex={idx}
+                key={item.id}
+              />
             ))}
 
             {provided.placeholder}
-            <AddNewItemModal />
+            <AddNewItemModal listIndex={listIndex} />
           </Stack>
         </Stack>
       )}

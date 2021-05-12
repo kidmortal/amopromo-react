@@ -10,12 +10,24 @@ import {
   ModalOverlay,
   useDisclosure,
 } from "@chakra-ui/react";
+import { useDispatch } from "react-redux";
 
-export function AddNewItemModal() {
+export function AddNewItemModal({ listIndex }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const dispatch = useDispatch();
+
+  function handleAddItem() {
+    let item = { content: "Alguma coisa", tags: ["algo", "algo"] };
+    console.log(listIndex);
+    dispatch({
+      type: "ADD_ITEM_TO_LIST",
+      payload: { listIndex, item },
+    });
+  }
+
   return (
     <>
-      <Button onClick={onOpen}>Adicionar Novo Item</Button>
+      <Button onClick={handleAddItem}>Adicionar Novo Item</Button>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>

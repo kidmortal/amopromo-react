@@ -1,4 +1,4 @@
-import { Button, HStack, Icon, Text } from "@chakra-ui/react";
+import { Button, Icon } from "@chakra-ui/react";
 import { RiAddLine } from "react-icons/ri";
 
 export function TransparentAddButton({ children, color, onClick }) {
