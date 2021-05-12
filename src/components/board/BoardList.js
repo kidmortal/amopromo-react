@@ -1,4 +1,4 @@
-import { Button, IconButton } from "@chakra-ui/button";
+import { IconButton } from "@chakra-ui/button";
 import Icon from "@chakra-ui/icon";
 import { AiOutlineClose } from "react-icons/ai";
 import { HStack, Stack, Text } from "@chakra-ui/layout";

@@ -41,6 +41,7 @@ export function Board() {
         <HStack zIndex="10" justify="start" align="self-end" spacing={5}>
           {lists?.map((list, index) => (
             <BoardList
+              key={list.title}
               listIndex={index}
               title={list.title}
               list={list.list}

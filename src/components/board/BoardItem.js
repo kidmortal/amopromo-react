@@ -1,6 +1,6 @@
 import { IconButton } from "@chakra-ui/button";
 import Icon from "@chakra-ui/icon";
-import { AiOutlineDelete, AiOutlineEdit } from "react-icons/ai";
+import { AiOutlineDelete } from "react-icons/ai";
 import { HStack, Stack, Text } from "@chakra-ui/layout";
 import React from "react";
 import { Draggable } from "react-beautiful-dnd";
@@ -27,11 +27,13 @@ export function BoardItem({ item, itemIndex, listIndex }) {
           ref={provided.innerRef}
         >
           <IconButton
+            marginTop="-10px"
             marginLeft="180px"
             position="absolute"
             variant="unstyled"
+            color="red.600"
             onClick={handleDeleteItem}
-            icon={<Icon as={AiOutlineDelete} color="red.600" />}
+            icon={<Icon as={AiOutlineDelete} />}
           />
 
           <Stack margin="10px" justify="flex-start" padding="10px">

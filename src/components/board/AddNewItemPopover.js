@@ -1,23 +1,19 @@
 import {
   Button,
-  CloseButton,
   HStack,
   Input,
   Popover,
   PopoverArrow,
   PopoverBody,
-  PopoverCloseButton,
   PopoverContent,
   PopoverHeader,
   PopoverTrigger,
   Stack,
   Text,
-  useDisclosure,
   useToast,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { TransparentAddButton } from "./TransparentAddButton";
 
 export function AddNewItemPopover({ listIndex }) {
   const [open, setOpen] = useState(false);
@@ -86,7 +82,9 @@ export function AddNewItemPopover({ listIndex }) {
   return (
     <Popover isOpen={open}>
       <PopoverTrigger>
-        <Button onClick={handleOpen}>Adicionar Novo Item</Button>
+        <Button variant="unstyled" onClick={handleOpen}>
+          Adicionar Novo Item
+        </Button>
       </PopoverTrigger>
       <PopoverContent display={display}>
         <PopoverArrow />

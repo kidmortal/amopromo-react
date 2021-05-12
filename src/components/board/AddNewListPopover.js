@@ -15,13 +15,12 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { TransparentAddButton } from "./TransparentAddButton";
 
 export function AddNewListPopover({ listIndex }) {
   const [open, setOpen] = useState(false);
   const [display, setDisplay] = useState("none");
   const [title, setTitle] = useState("");
-  const [color, setColor] = useState("");
+  const [color, setColor] = useState("green.500");
   const toast = useToast();
   const dispatch = useDispatch();
 
@@ -63,7 +62,7 @@ export function AddNewListPopover({ listIndex }) {
       payload: list,
     });
     setTitle("");
-    setColor("");
+    setColor("green.500");
     setDisplay("none");
     setOpen(false);
   }
@@ -72,7 +71,7 @@ export function AddNewListPopover({ listIndex }) {
     setOpen(false);
     setDisplay("none");
     setTitle("");
-    setColor("");
+    setColor("green.500");
   }
 
   function handleOpen() {
@@ -83,7 +82,9 @@ export function AddNewListPopover({ listIndex }) {
   return (
     <Popover isOpen={open}>
       <PopoverTrigger>
-        <Button onClick={handleOpen}>Adicionar Nova Lista</Button>
+        <Button variant="unstyled" onClick={handleOpen}>
+          Adicionar Nova Lista
+        </Button>
       </PopoverTrigger>
       <PopoverContent display={display}>
         <PopoverArrow />

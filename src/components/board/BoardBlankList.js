@@ -1,5 +1,4 @@
-import { HStack, Stack } from "@chakra-ui/layout";
-import { useDispatch } from "react-redux";
+import { Stack } from "@chakra-ui/layout";
 import { AddNewListPopover } from "../board/AddNewListPopover";
 
 export function BoardBlankList({ lists, setLists }) {
