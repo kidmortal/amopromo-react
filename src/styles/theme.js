@@ -5,6 +5,7 @@ export const theme = extendTheme({
     global: {
       body: {
         bg: "#E1E8ED",
+        minHeight: "100%",
       },
     },
   },

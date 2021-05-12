@@ -39,6 +39,20 @@ export default function BoardReducer(state = defaultState, action) {
       return newState;
     }
 
+    case "ITEM_DRAG": {
+      let newState = [...state];
+      let { item, from, to } = action.payload;
+      let fromListIndex = newState.findIndex((list) => list.title === from);
+      let toListIndex = newState.findIndex((list) => list.title === to);
+      let fromList = newState[fromListIndex].list;
+      let toList = newState[toListIndex].list;
+      let itemIndex = fromList.findIndex((listItem) => listItem.id === item.id);
+      let spliceItem = fromList.splice(itemIndex, 1);
+      console.log(spliceItem);
+      toList.push(spliceItem);
+      return newState;
+    }
+
     default:
       return state;
   }

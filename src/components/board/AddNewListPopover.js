@@ -18,6 +18,7 @@ import { useDispatch } from "react-redux";
 import { TransparentAddButton } from "./TransparentAddButton";
 
 export function AddNewListPopover({ listIndex }) {
+  const [open, setOpen] = useState(false);
   const [display, setDisplay] = useState("none");
   const [title, setTitle] = useState("");
   const [color, setColor] = useState("");
@@ -64,25 +65,25 @@ export function AddNewListPopover({ listIndex }) {
     setTitle("");
     setColor("");
     setDisplay("none");
+    setOpen(false);
   }
 
   function handleCancel() {
+    setOpen(false);
+    setDisplay("none");
     setTitle("");
     setColor("");
-    setDisplay("none");
+  }
+
+  function handleOpen() {
+    setOpen(true);
+    setDisplay("block");
   }
 
   return (
-    <Popover>
+    <Popover isOpen={open}>
       <PopoverTrigger>
-        <TransparentAddButton
-          color="black"
-          onClick={() => {
-            setDisplay("block");
-          }}
-        >
-          Adicionar Nova Lista
-        </TransparentAddButton>
+        <Button onClick={handleOpen}>Adicionar Nova Lista</Button>
       </PopoverTrigger>
       <PopoverContent display={display}>
         <PopoverArrow />

@@ -49,7 +49,7 @@ export function BoardList({ color, title, list, listIndex }) {
                 item={item}
                 listIndex={listIndex}
                 itemIndex={idx}
-                key={item.id}
+                key={idx}
               />
             ))}
 

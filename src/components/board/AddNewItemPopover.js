@@ -1,15 +1,18 @@
 import {
   Button,
+  CloseButton,
   HStack,
   Input,
   Popover,
   PopoverArrow,
   PopoverBody,
+  PopoverCloseButton,
   PopoverContent,
   PopoverHeader,
   PopoverTrigger,
   Stack,
   Text,
+  useDisclosure,
   useToast,
 } from "@chakra-ui/react";
 import { useState } from "react";
@@ -17,6 +20,7 @@ import { useDispatch } from "react-redux";
 import { TransparentAddButton } from "./TransparentAddButton";
 
 export function AddNewItemPopover({ listIndex }) {
+  const [open, setOpen] = useState(false);
   const [display, setDisplay] = useState("none");
   const [content, setContent] = useState("");
   const [tag, setTag] = useState("");
@@ -50,8 +54,9 @@ export function AddNewItemPopover({ listIndex }) {
 
   function handleAddItem() {
     if (validateInputs()) return;
-
+    const id = String(new Date().valueOf());
     let item = {
+      id,
       content,
       tag,
     };
@@ -60,28 +65,28 @@ export function AddNewItemPopover({ listIndex }) {
       type: "ADD_ITEM_TO_LIST",
       payload: { listIndex, item },
     });
+    setOpen(false);
     setDisplay("none");
     setContent("");
     setTag("");
   }
 
   function handleCancel() {
+    setOpen(false);
     setDisplay("none");
     setContent("");
     setTag("");
   }
 
+  function handleOpen() {
+    setOpen(true);
+    setDisplay("block");
+  }
+
   return (
-    <Popover>
+    <Popover isOpen={open}>
       <PopoverTrigger>
-        <TransparentAddButton
-          color="white"
-          onClick={() => {
-            setDisplay("block");
-          }}
-        >
-          Adicionar Novo Item
-        </TransparentAddButton>
+        <Button onClick={handleOpen}>Adicionar Novo Item</Button>
       </PopoverTrigger>
       <PopoverContent display={display}>
         <PopoverArrow />
