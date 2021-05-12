@@ -1,5 +1,6 @@
 import { Image } from "@chakra-ui/image";
 import { HStack, Stack, Text } from "@chakra-ui/layout";
+import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import { BoardList } from "./BoardList";
 import { TransparentAddButton } from "./TransparentAddButton";
 
@@ -9,12 +10,28 @@ export function Board() {
       <Text fontSize="4xl" fontWeight="700">
         Kanban do Projeto
       </Text>
-      <HStack zIndex="10" justify="start" spacing={10}>
-        <BoardList title="📝 To Do" color="#5CC4FF" />
-        <BoardList title="📝 To Do" color="#945AD1" />
-        <BoardList title="📝 To Do" color="#59D090" />
-        <TransparentAddButton text="Adicionar outra lista" color="black" />
-      </HStack>
+      <DragDropContext>
+        <Droppable droppableId="kanban">
+          {(provided) => (
+            <HStack
+              zIndex="10"
+              justify="start"
+              spacing={10}
+              ref={provided.innerRef}
+              {...provided.droppableProps}
+            >
+              <BoardList title="📝 To Do" color="#5CC4FF" />
+              <BoardList title="📝 To Do" color="#945AD1" />
+              <BoardList title="📝 To Do" color="#59D090" />
+
+              <TransparentAddButton
+                text="Adicionar outra lista"
+                color="black"
+              />
+            </HStack>
+          )}
+        </Droppable>
+      </DragDropContext>
       <Image
         zIndex="5"
         position="absolute"
