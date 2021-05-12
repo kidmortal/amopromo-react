@@ -35,7 +35,7 @@ export default function BoardReducer(state = defaultState, action) {
     case "REMOVE_LIST_FROM_BOARD": {
       let newState = [...state];
       let { listIndex } = action.payload;
-      newState[listIndex] = null;
+      newState.splice(listIndex, 1);
       return newState;
     }
 

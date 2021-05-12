@@ -4,10 +4,18 @@ import { AiOutlineClose } from "react-icons/ai";
 import { HStack, Stack, Text } from "@chakra-ui/layout";
 import { Droppable } from "react-beautiful-dnd";
 import { BoardItem } from "./BoardItem";
-import { AddNewItemModal } from "./AddNewItemModal";
+import { useDispatch } from "react-redux";
+import { AddNewItemPopover } from "../board/AddNewItemPopover";
 
 export function BoardList({ color, title, list, listIndex }) {
-  function handleDeleteList() {}
+  const dispatch = useDispatch();
+
+  function handleDeleteList() {
+    dispatch({
+      type: "REMOVE_LIST_FROM_BOARD",
+      payload: { listIndex },
+    });
+  }
 
   return (
     <Droppable droppableId={title}>
@@ -46,7 +54,7 @@ export function BoardList({ color, title, list, listIndex }) {
             ))}
 
             {provided.placeholder}
-            <AddNewItemModal listIndex={listIndex} />
+            <AddNewItemPopover listIndex={listIndex} />
           </Stack>
         </Stack>
       )}

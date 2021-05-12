@@ -39,18 +39,16 @@ export function BoardItem({ item, itemIndex, listIndex }) {
               {item.content}
             </Text>
             <HStack justify="start">
-              {item.tags?.map((tag) => (
-                <Text
-                  bg="blue.400"
-                  borderRadius="5px"
-                  padding="5px"
-                  fontWeight="medium"
-                  fontSize="medium"
-                  maxW="200px"
-                >
-                  {tag}
-                </Text>
-              ))}
+              <Text
+                bg="blue.400"
+                borderRadius="15px"
+                padding="5px"
+                fontWeight="semibold"
+                fontSize="smaller"
+                maxW="200px"
+              >
+                {item.tag}
+              </Text>
             </HStack>
           </Stack>
         </Stack>
