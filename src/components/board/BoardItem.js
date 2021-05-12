@@ -4,7 +4,7 @@ import { Tag } from "@chakra-ui/tag";
 
 export function BoardItem(props) {
   return (
-    <Stack w={[50, 100, 150, 215, 255]} h="90px" bg="white" borderRadius="5px">
+    <Stack flex={1} h="90px" bg="white" borderRadius="5px">
       <Stack margin="10px" justify="flex-start">
         <Text fontWeight="medium" fontSize="medium">
           {props.content}

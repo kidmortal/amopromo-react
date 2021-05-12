@@ -1,6 +1,7 @@
 import { Image } from "@chakra-ui/image";
 import { HStack, Stack, Text } from "@chakra-ui/layout";
 import { BoardList } from "./BoardList";
+import { TransparentAddButton } from "./TransparentAddButton";
 
 export function Board() {
   return (
@@ -12,6 +13,7 @@ export function Board() {
         <BoardList title="📝 To Do" color="#5CC4FF" />
         <BoardList title="📝 To Do" color="#945AD1" />
         <BoardList title="📝 To Do" color="#59D090" />
+        <TransparentAddButton text="Adicionar outra lista" color="black" />
       </HStack>
       <Image
         zIndex="5"
