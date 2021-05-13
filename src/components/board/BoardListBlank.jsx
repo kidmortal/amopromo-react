@@ -1,7 +1,7 @@
 import { Stack } from "@chakra-ui/layout";
-import { AddNewListPopover } from "../board/AddNewListPopover";
+import { AddNewListPopover } from "./AddNewListPopover";
 
-export function BoardBlankList({ lists, setLists }) {
+export function BoardListBlank({ lists, setLists }) {
   return (
     <Stack
       width={[220]}

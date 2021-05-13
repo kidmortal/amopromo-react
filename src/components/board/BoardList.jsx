@@ -5,7 +5,7 @@ import { HStack, Stack, Text } from "@chakra-ui/layout";
 import { Droppable } from "react-beautiful-dnd";
 import { BoardItem } from "./BoardItem";
 import { useDispatch } from "react-redux";
-import { AddNewItemPopover } from "../board/AddNewItemPopover";
+import { AddNewItemPopover } from "./AddNewItemPopover";
 
 export function BoardList({ color, title, list, listIndex }) {
   const dispatch = useDispatch();

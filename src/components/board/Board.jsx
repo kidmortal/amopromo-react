@@ -3,7 +3,7 @@ import { HStack, Stack, Text } from "@chakra-ui/layout";
 import { DragDropContext } from "react-beautiful-dnd";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { BoardBlankList } from "./BoardBlankList";
+import { BoardListBlank } from "./BoardListBlank";
 import { BoardList } from "./BoardList";
 
 export function Board() {
@@ -48,7 +48,7 @@ export function Board() {
               color={list.color}
             />
           ))}
-          <BoardBlankList />
+          <BoardListBlank />
         </HStack>
 
         <Image
